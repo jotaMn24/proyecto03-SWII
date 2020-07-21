@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Productos</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<br><br>
+	<div class="container mt-4">
+	
+		<a th:href="@{/newProd}" class="btn btn-primary">Nuevo</a>
+	
+		<table class="table">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>NOMBRE PRODUCTO</td>
+					<td>PROVEEDOR</td>
+					<td>CATEGORIA</td>
+					<td>CANT. POR UNIDAD</td>
+					<td>PRECIO UNIDAD</td>
+					<td>ACCIONES</td>
+				</tr>
+			</thead>
+		<tbody>
+			
+			<tr th:each="prod:${productos}">
+				<td th:text="${prod.id}"></td>
+				<td th:text="${prod.nombreProducto}"></td>
+				<td th:text="${prod.idProveedor}"></td>
+				<td th:text="${prod.idCategoria}"></td>
+				<td th:text="${prod.cantidadPorUnidad}"></td>
+				<td th:text="${prod.precioUnidad}"></td>
+				<td>
+					<a th:href="@{/editarProd/}+${prod.id}" class="btn btn-warning">Editar</a>		
+								
+					<a th:href="@{/eliminarProd/}+${prod.id}" class="btn btn-danger">Eliminar</a>
+				
+				</td>				
+			</tr>		
+		</tbody>
+	</table>
+</div>
+
+
+
+
+
+</body>
+</html>
